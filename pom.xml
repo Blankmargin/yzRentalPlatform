@@ -29,7 +29,7 @@
     <commons-lang3.version>3.3.2</commons-lang3.version>
     <commons-io.version>1.3.2</commons-io.version>
     <commons-net.version>3.3</commons-net.version>
-    <pagehelper.version>5.1.2</pagehelper.version>
+    <pagehelper.version>3.4.2</pagehelper.version><!--5.1.2-->
     <jsqlparser.version>0.9.1</jsqlparser.version>
     <commons-fileupload.version>1.3.1</commons-fileupload.version>
     <jedis.version>2.7.2</jedis.version>
@@ -83,13 +83,12 @@
       <artifactId>quartz</artifactId>
       <version>${quartz.version}</version>
     </dependency>
-    <!-- 单元测试 -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>junit</groupId>-->
+      <!--<artifactId>junit</artifactId>-->
+      <!--<version>${junit.version}</version>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
     <!-- 日志处理 -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -241,6 +240,13 @@
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
       <version>${freemarker.version}</version>
+    </dependency>
+    <!-- 单元测试 -->
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
     </dependency>
   </dependencies>
 

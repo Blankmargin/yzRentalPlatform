@@ -7,13 +7,14 @@
     <result column="sell_point" property="sellPoint" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="REAL" />
     <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="cid" property="cid" jdbcType="VARCHAR" />
     <result column="image" property="image" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, sell_point, price, num, image, status, createtime, updatetime
+    id, name, sell_point, price, num, cid, image, status, createtime, updatetime
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -21,17 +22,22 @@
     from tb_item
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  <select id="getAllItem" resultMap="BaseResultMap">
+    select * from tb_item
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tb_item
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.fhh.pojo.Item" >
     insert into tb_item (id, name, sell_point, 
-      price, num, image, status, 
-      createtime, updatetime)
+      price, num, cid, image, 
+      status, createtime, updatetime
+      )
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sellPoint,jdbcType=VARCHAR}, 
-      #{price,jdbcType=REAL}, #{num,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+      #{price,jdbcType=REAL}, #{num,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.fhh.pojo.Item" >
     insert into tb_item
@@ -50,6 +56,9 @@
       </if>
       <if test="num != null" >
         num,
+      </if>
+      <if test="cid != null" >
+        cid,
       </if>
       <if test="image != null" >
         image,
@@ -80,6 +89,9 @@
       <if test="num != null" >
         #{num,jdbcType=INTEGER},
       </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=VARCHAR},
+      </if>
       <if test="image != null" >
         #{image,jdbcType=VARCHAR},
       </if>
@@ -109,6 +121,9 @@
       <if test="num != null" >
         num = #{num,jdbcType=INTEGER},
       </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=VARCHAR},
+      </if>
       <if test="image != null" >
         image = #{image,jdbcType=VARCHAR},
       </if>
@@ -130,6 +145,7 @@
       sell_point = #{sellPoint,jdbcType=VARCHAR},
       price = #{price,jdbcType=REAL},
       num = #{num,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=VARCHAR},
       image = #{image,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       createtime = #{createtime,jdbcType=TIMESTAMP},

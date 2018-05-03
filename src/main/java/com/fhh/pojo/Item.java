@@ -13,6 +13,8 @@ public class Item {
 
     private Integer num;
 
+    private String cid;
+
     private String image;
 
     private Integer status;
@@ -59,6 +61,14 @@ public class Item {
 
     public void setNum(Integer num) {
         this.num = num;
+    }
+
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid == null ? null : cid.trim();
     }
 
     public String getImage() {

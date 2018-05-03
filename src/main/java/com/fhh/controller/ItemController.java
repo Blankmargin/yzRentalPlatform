@@ -1,5 +1,6 @@
 package com.fhh.controller;
 
+import com.fhh.domain.EasyUIDataGridResult;
 import com.fhh.pojo.Item;
 import com.fhh.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,12 @@ public class ItemController {
     public Item getItemById(@PathVariable String itemId){
         Item item = itemService.getItemById(itemId);
         return item;
+    }
+
+    @RequestMapping("/item/list")
+    @ResponseBody
+    public EasyUIDataGridResult getItemList(Integer page,Integer rows){
+        EasyUIDataGridResult result = itemService.getItemList(page, rows);
+        return result;
     }
 }

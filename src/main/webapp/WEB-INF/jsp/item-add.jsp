@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link href="/js/kindeditor-4.1.10/themes/default/default.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="/yzRentalPlatform/js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/yzRentalPlatform/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
 <div style="padding:10px 10px 10px 10px">
 	<form id="itemAddForm" class="itemForm" method="post">
 	    <table cellpadding="5">
@@ -30,12 +30,12 @@
 	            <td>库存数量:</td>
 	            <td><input class="easyui-numberbox" type="text" name="num" data-options="min:1,max:99999999,precision:0,required:true" /></td>
 	        </tr>
-	        <tr>
-	            <td>条形码:</td>
-	            <td>
-	                <input class="easyui-textbox" type="text" name="barcode" data-options="validType:'length[1,30]'" />
-	            </td>
-	        </tr>
+	        <%--<tr>--%>
+	            <%--<td>条形码:</td>--%>
+	            <%--<td>--%>
+	                <%--<input class="easyui-textbox" type="text" name="barcode" data-options="validType:'length[1,30]'" />--%>
+	            <%--</td>--%>
+	        <%--</tr>--%>
 	        <tr>
 	            <td>商品图片:</td>
 	            <td>

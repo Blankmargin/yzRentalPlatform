@@ -2,6 +2,8 @@ package com.fhh.mapper;
 
 import com.fhh.pojo.Item;
 
+import java.util.List;
+
 public interface ItemMapper {
     int deleteByPrimaryKey(String id);
 
@@ -14,4 +16,6 @@ public interface ItemMapper {
     int updateByPrimaryKeySelective(Item record);
 
     int updateByPrimaryKey(Item record);
+
+    List<Item> getAllItem();
 }
