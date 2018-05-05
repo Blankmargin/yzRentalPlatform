@@ -12,6 +12,9 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 配置包扫描器 -->
+    <context:component-scan base-package="com.fhh"/>
+
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="fileEncoding" value="utf-8"/>
@@ -21,6 +24,7 @@
             </list>
         </property>
     </bean>
+
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close">
@@ -31,6 +35,7 @@
         <property name="maxActive" value="10"/>
         <property name="minIdle" value="5"/>
     </bean>
+
     <!-- 让spring管理sqlsessionfactory 使用mybatis和spring整合包中的 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 数据库连接池 -->
@@ -38,11 +43,10 @@
         <!-- 加载mybatis的全局配置文件 -->
         <property name="configLocation" value="classpath:sqlMapConfig.xml"/>
     </bean>
+
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.fhh.mapper"/>
     </bean>
-
-    <context:component-scan base-package="com.fhh"/>
 
     <!-- 事务管理器 -->
     <bean id="transactionManager"
@@ -54,20 +58,26 @@
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!-- 传播行为 -->
-            <tx:method name="save*" propagation="REQUIRED" />
-            <tx:method name="insert*" propagation="REQUIRED" />
-            <tx:method name="add*" propagation="REQUIRED" />
-            <tx:method name="create*" propagation="REQUIRED" />
-            <tx:method name="delete*" propagation="REQUIRED" />
-            <tx:method name="update*" propagation="REQUIRED" />
-            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="create*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
         </tx:attributes>
     </tx:advice>
     <!-- 切面 -->
     <aop:config>
         <aop:advisor advice-ref="txAdvice"
-                     pointcut="execution(* com.fhh.service..*.*(..))" />
+                     pointcut="execution(* com.fhh.manager.service..*.*(..))"/>
     </aop:config>
+
+    <!--本地配置-->
+    <bean id="configConstants" class="com.fhh.config.ConfigConstants">
+        <property name="imageServerUrl" value="http://192.168.25.133/"/>
+        <property name="conf" value="E:/study/yzRentalPlatform/src/main/resources/FastDfs.conf"/>
+    </bean>
 </beans>

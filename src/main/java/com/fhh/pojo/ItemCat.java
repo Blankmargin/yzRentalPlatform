@@ -1,8 +1,9 @@
 package com.fhh.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ItemCat {
+public class ItemCat implements Serializable {
     private String id;
 
     private String parentId;

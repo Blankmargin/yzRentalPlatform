@@ -1,8 +1,9 @@
 package com.fhh.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Tenant {
+public class Tenant implements Serializable {
     private String tenantId;
 
     private String tenantName;

@@ -1,11 +1,12 @@
 package com.fhh.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Item {
+public class Item implements Serializable{
     private String id;
 
-    private String name;
+    private String title;
 
     private String sellPoint;
 
@@ -31,12 +32,12 @@ public class Item {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getSellPoint() {

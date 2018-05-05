@@ -1,8 +1,9 @@
 package com.fhh.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Renter {
+public class Renter implements Serializable {
     private String renterId;
 
     private String renterName;

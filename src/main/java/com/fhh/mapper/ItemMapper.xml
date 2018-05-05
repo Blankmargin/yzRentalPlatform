@@ -3,7 +3,7 @@
 <mapper namespace="com.fhh.mapper.ItemMapper" >
   <resultMap id="BaseResultMap" type="com.fhh.pojo.Item" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="sell_point" property="sellPoint" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="REAL" />
     <result column="num" property="num" jdbcType="INTEGER" />
@@ -14,10 +14,10 @@
     <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, sell_point, price, num, cid, image, status, createtime, updatetime
+    id, title, sell_point, price, num, cid, image, status, createtime, updatetime
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from tb_item
     where id = #{id,jdbcType=VARCHAR}
@@ -30,12 +30,12 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.fhh.pojo.Item" >
-    insert into tb_item (id, name, sell_point, 
-      price, num, cid, image, 
+    insert into tb_item (id, title, sell_point,
+      price, num, cid, image,
       status, createtime, updatetime
       )
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sellPoint,jdbcType=VARCHAR}, 
-      #{price,jdbcType=REAL}, #{num,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{sellPoint,jdbcType=VARCHAR},
+      #{price,jdbcType=REAL}, #{num,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR},
       #{status,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -45,8 +45,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="title != null" >
+        title,
       </if>
       <if test="sellPoint != null" >
         sell_point,
@@ -77,8 +77,8 @@
       <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
       </if>
       <if test="sellPoint != null" >
         #{sellPoint,jdbcType=VARCHAR},
@@ -109,8 +109,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.fhh.pojo.Item" >
     update tb_item
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="sellPoint != null" >
         sell_point = #{sellPoint,jdbcType=VARCHAR},
@@ -141,7 +141,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fhh.pojo.Item" >
     update tb_item
-    set name = #{name,jdbcType=VARCHAR},
+    set title = #{title,jdbcType=VARCHAR},
       sell_point = #{sellPoint,jdbcType=VARCHAR},
       price = #{price,jdbcType=REAL},
       num = #{num,jdbcType=INTEGER},

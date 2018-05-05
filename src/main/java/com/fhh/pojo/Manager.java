@@ -1,8 +1,9 @@
 package com.fhh.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Manager {
+public class Manager implements Serializable {
     private String managerId;
 
     private String managerName;
