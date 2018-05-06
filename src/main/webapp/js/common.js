@@ -25,7 +25,7 @@ var E3 = {
         //指定上传文件参数名称
         filePostName  : "uploadFile",
         //指定上传文件请求的url。
-        uploadJson : '/yzRentalPlatform/pic/upload',
+        uploadJson : '/pic/upload',
         //上传类型，分别为image、flash、media、file
         dir : "image"
     },
@@ -123,7 +123,7 @@ var E3 = {
                         onOpen : function(){
                             var _win = this;
                             $("ul",_win).tree({
-                                url:'/yzRentalPlatform/item/cat/list',
+                                url:'/item/cat/list',
                                 animate:true,
                                 onClick : function(node){
                                     if($(this).tree("isLeaf",node.target)){

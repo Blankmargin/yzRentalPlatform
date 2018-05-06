@@ -1,8 +1,8 @@
 package com.fhh.config;
 
 public class ConfigConstants {
-    private String imageServerUrl="";
-    private String conf="";
+    private String imageServerUrl = "";
+    private String conf = "";
 
     public String getImageServerUrl() {
         return imageServerUrl;

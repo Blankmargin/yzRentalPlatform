@@ -22,30 +22,30 @@ public class PictureController {
     @Autowired
     private ConfigConstants configConstants;
 
-    @RequestMapping(value="/pic/upload",produces = MediaType.TEXT_PLAIN_VALUE+";charset=utf-8")
+    @RequestMapping(value = "/pic/upload", produces = MediaType.TEXT_PLAIN_VALUE + ";charset=utf-8")
     @ResponseBody
-    public String uploadFile(MultipartFile uploadFile){
-        FastDFSClient fastDFSClient= null;
+    public String uploadFile(MultipartFile uploadFile) {
+        FastDFSClient fastDFSClient = null;
         try {
             //把图片上传到图片服务器
             fastDFSClient = new FastDFSClient(configConstants.getConf());
             //取文件扩展名
-            String originalFilename=uploadFile.getOriginalFilename();
-            String extName=originalFilename.substring(originalFilename.lastIndexOf(".")+1);
+            String originalFilename = uploadFile.getOriginalFilename();
+            String extName = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
             //得到图片地址和文件名
             String url = fastDFSClient.uploadFile(uploadFile.getBytes(), extName);
             //补充为完整的url
-            url=configConstants.getImageServerUrl()+url;
+            url = configConstants.getImageServerUrl() + url;
             //封装到map中并返回
-            Map result=new HashMap<>();
-            result.put("error",0);
-            result.put(url,url);
+            Map result = new HashMap<>();
+            result.put("error", 0);
+            result.put(url, url);
             return JsonUtils.objectToJson(result);
         } catch (Exception e) {
             e.printStackTrace();
-            Map result=new HashMap<>();
-            result.put("error",1);
-            result.put("message","图片上传失败！");
+            Map result = new HashMap<>();
+            result.put("error", 1);
+            result.put("message", "图片上传失败！");
             return JsonUtils.objectToJson(result);
         }
     }

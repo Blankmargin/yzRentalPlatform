@@ -23,13 +23,13 @@ public class ItemCatServiceImpl implements ItemCatService {
     public List<EasyUITreeNode> getItemCatList(String parentId) {
 //        根据商品parentid查询子节点列表
         List<ItemCat> itemCatList = itemCatMapper.selectByParentId(parentId);
-        List<EasyUITreeNode> resultList=new ArrayList<>();
+        List<EasyUITreeNode> resultList = new ArrayList<>();
 //        把列表转换成EasyUITreeNode列表返回结果
-        for (ItemCat list:itemCatList){
-            EasyUITreeNode node=new EasyUITreeNode();
+        for (ItemCat list : itemCatList) {
+            EasyUITreeNode node = new EasyUITreeNode();
             node.setId(list.getId());
             node.setText(list.getName());
-            node.setState(list.getIsParent()?"closed":"open");
+            node.setState(list.getIsParent() ? "closed" : "open");
             //添加到结果列表
             resultList.add(node);
         }

@@ -39,9 +39,9 @@ public class ItemServiceImpl implements ItemService {
 //        执行查询
         List<Item> itemList = itemMapper.getAllItem();
 //        创建返回值对象
-        EasyUIDataGridResult result=new EasyUIDataGridResult();
+        EasyUIDataGridResult result = new EasyUIDataGridResult();
         result.setRows(itemList);
-        PageInfo<Item> pageInfo=new PageInfo<>(itemList);
+        PageInfo<Item> pageInfo = new PageInfo<>(itemList);
         result.setTotal(pageInfo.getTotal());
         return result;
     }
@@ -57,7 +57,7 @@ public class ItemServiceImpl implements ItemService {
         item.setCreatetime(new Date());
         item.setUpdatetime(new Date());
 //        创建商品描述表对象
-        ItemDesc itemDesc=new ItemDesc();
+        ItemDesc itemDesc = new ItemDesc();
 //        补全商品描述表属性
         itemDesc.setItemId(itemId);
         itemDesc.setItemDesc(desc);
@@ -72,8 +72,8 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public YZResult editItem(@RequestParam("ids") String id,Item item) {
-        item=itemMapper.selectByPrimaryKey(id);
+    public YZResult editItem(@RequestParam("ids") String id, Item item) {
+        item = itemMapper.selectByPrimaryKey(id);
         return YZResult.ok();
     }
 
@@ -85,7 +85,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public YZResult resheltItem(@RequestParam("ids") String id, Item item) {
-        item=itemMapper.selectByPrimaryKey(id);
+        item = itemMapper.selectByPrimaryKey(id);
         item.setStatus(1);
         item.setCreatetime(item.getCreatetime());
         item.setUpdatetime(new Date());
@@ -95,7 +95,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public YZResult instockItem(@RequestParam("ids") String id, Item item) {
-        item=itemMapper.selectByPrimaryKey(id);
+        item = itemMapper.selectByPrimaryKey(id);
         item.setStatus(2);
         item.setCreatetime(item.getCreatetime());
         item.setUpdatetime(new Date());

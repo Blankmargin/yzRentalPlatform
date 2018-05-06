@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fhh.mapper.ContentCategoryMapper">
+    <resultMap id="BaseResultMap" type="com.fhh.pojo.ContentCategory">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="parent_id" property="parentId" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="sort_order" property="sortOrder" jdbcType="INTEGER"/>
+        <result column="is_parent" property="isParent" jdbcType="BIT"/>
+        <result column="createtime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, parent_id, name, status, sort_order, is_parent, createtime, updatetime
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_content_category
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectByParentId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from tb_content_category where parent_id = #{parent_id}
+  </select>
+    <select id="countContentCategoryByParentId" parameterType="java.lang.Long" resultType="int">
+    select count(*) from tb_content_category where parent_id = #{parent_id}
+  </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_content_category
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.fhh.pojo.ContentCategory">
+        <selectKey keyProperty="id" resultType="java.lang.Long" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into tb_content_category (id, parent_id, name,
+        status, sort_order, is_parent,
+        createtime, updatetime)
+        values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
+        #{status,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER}, #{isParent,jdbcType=BIT},
+        #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.fhh.pojo.ContentCategory">
+        <selectKey keyProperty="id" resultType="java.lang.Long" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into tb_content_category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="sortOrder != null">
+                sort_order,
+            </if>
+            <if test="isParent != null">
+                is_parent,
+            </if>
+            <if test="createtime != null">
+                createtime,
+            </if>
+            <if test="updatetime != null">
+                updatetime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="sortOrder != null">
+                #{sortOrder,jdbcType=INTEGER},
+            </if>
+            <if test="isParent != null">
+                #{isParent,jdbcType=BIT},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.fhh.pojo.ContentCategory">
+        update tb_content_category
+        <set>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="sortOrder != null">
+                sort_order = #{sortOrder,jdbcType=INTEGER},
+            </if>
+            <if test="isParent != null">
+                is_parent = #{isParent,jdbcType=BIT},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.fhh.pojo.ContentCategory">
+    update tb_content_category
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      sort_order = #{sortOrder,jdbcType=INTEGER},
+      is_parent = #{isParent,jdbcType=BIT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

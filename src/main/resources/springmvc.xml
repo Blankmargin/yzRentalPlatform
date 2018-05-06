@@ -12,7 +12,7 @@
     <!--加载图片上传配置文件-->
     <!--<context:property-placeholder location="upload.properties"/>-->
 
-    <context:component-scan base-package="com.fhh.manager.controller"/>
+    <context:component-scan base-package="com.fhh"/>
     <mvc:annotation-driven/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

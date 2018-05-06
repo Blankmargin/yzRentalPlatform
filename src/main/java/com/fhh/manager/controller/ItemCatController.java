@@ -20,8 +20,9 @@ public class ItemCatController {
 
     @RequestMapping("/item/cat/list")
     @ResponseBody
-    public List<EasyUITreeNode> getItemCatList(@RequestParam(name="id",defaultValue = "0") String parentId){
+    public List<EasyUITreeNode> getItemCatList(@RequestParam(name = "id", defaultValue = "0") String parentId) {
         List<EasyUITreeNode> itemCatList = itemCatService.getItemCatList(parentId);
         return itemCatList;
     }
+
 }
