@@ -77,7 +77,11 @@
 
     <!--本地配置-->
     <bean id="configConstants" class="com.fhh.config.ConfigConstants">
+        <!--图片上传服务器路径-->
         <property name="imageServerUrl" value="http://192.168.25.133/"/>
+        <!--fastdfs配置文件-->
         <property name="conf" value="E:/study/yzRentalPlatform/src/main/resources/FastDfs.conf"/>
+        <!--首页轮播图contentId-->
+        <property name="contentId" value="89"/>
     </bean>
 </beans>

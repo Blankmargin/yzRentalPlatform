@@ -39,7 +39,7 @@ public class PictureController {
             //封装到map中并返回
             Map result = new HashMap<>();
             result.put("error", 0);
-            result.put(url, url);
+            result.put("url", url);
             return JsonUtils.objectToJson(result);
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,4 +49,5 @@ public class PictureController {
             return JsonUtils.objectToJson(result);
         }
     }
+
 }

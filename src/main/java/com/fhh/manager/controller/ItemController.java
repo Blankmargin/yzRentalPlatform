@@ -39,7 +39,7 @@ public class ItemController {
     //    编辑商品信息
     @RequestMapping(value = "/rest/item/update", method = RequestMethod.POST)
     @ResponseBody
-    public YZResult editItem(@RequestParam("ids") String id, Item item) {
+    public YZResult editItem(String id, Item item) {
         YZResult yzResult = itemService.editItem(id, item);
         return yzResult;
     }

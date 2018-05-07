@@ -2,6 +2,8 @@ package com.fhh.mapper;
 
 import com.fhh.pojo.Content;
 
+import java.util.List;
+
 public interface ContentMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -16,4 +18,6 @@ public interface ContentMapper {
     int updateByPrimaryKeyWithBLOBs(Content record);
 
     int updateByPrimaryKey(Content record);
+
+    List<Content> getContentByCategoryId(Long categoryId);
 }

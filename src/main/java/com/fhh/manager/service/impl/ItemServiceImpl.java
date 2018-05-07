@@ -72,8 +72,10 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public YZResult editItem(@RequestParam("ids") String id, Item item) {
-        item = itemMapper.selectByPrimaryKey(id);
+    public YZResult editItem(String id, Item item) {
+        Item nowItem = itemMapper.selectByPrimaryKey(id);
+        item.setCreatetime(nowItem.getCreatetime());
+        item.setUpdatetime(new Date());
         return YZResult.ok();
     }
 
