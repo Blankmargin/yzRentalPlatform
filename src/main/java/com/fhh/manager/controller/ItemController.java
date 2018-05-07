@@ -36,35 +36,44 @@ public class ItemController {
         return yzResult;
     }
 
-    //    编辑商品信息
-    @RequestMapping(value = "/rest/item/update", method = RequestMethod.POST)
-    @ResponseBody
-    public YZResult editItem(String id, Item item) {
-        YZResult yzResult = itemService.editItem(id, item);
-        return yzResult;
-    }
-
     //删除选中商品
+
     @RequestMapping(value = "/rest/item/delete", method = RequestMethod.POST)
     @ResponseBody
     public YZResult deleteItemById(@RequestParam("ids") String id, Item item) {
         YZResult yzResult = itemService.deleteItemById(id, item);
         return yzResult;
     }
-
     //上架
+
     @RequestMapping(value = "/rest/item/reshelf", method = RequestMethod.POST)
     @ResponseBody
     public YZResult resheltItem(@RequestParam("ids") String id, Item item) {
         YZResult yzResult = itemService.resheltItem(id, item);
         return yzResult;
     }
-
     //下架
+
     @RequestMapping(value = "/rest/item/instock", method = RequestMethod.POST)
     @ResponseBody
     public YZResult instockItem(@RequestParam("ids") String id, Item item) {
         YZResult yzResult = itemService.instockItem(id, item);
+        return yzResult;
+    }
+
+    //获得商品描述信息
+    @RequestMapping(value = "/item/desc",method = RequestMethod.POST)
+    @ResponseBody
+    public String getItemDesc(@RequestParam("ids") String id){
+        String itemDesc = itemService.getItemDesc(id);
+        return itemDesc;
+    }
+
+    //    编辑商品信息
+    @RequestMapping(value = "/rest/item/update", method = RequestMethod.POST)
+    @ResponseBody
+    public YZResult editItem(String id,String desc, Item item) {
+        YZResult yzResult = itemService.editItem(id,desc,item);
         return yzResult;
     }
 }

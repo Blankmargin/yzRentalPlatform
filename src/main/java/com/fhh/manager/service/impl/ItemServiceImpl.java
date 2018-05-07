@@ -72,10 +72,19 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public YZResult editItem(String id, Item item) {
+    public YZResult editItem(String id,String desc, Item item) {
+        Date updatetime=new Date();
         Item nowItem = itemMapper.selectByPrimaryKey(id);
         item.setCreatetime(nowItem.getCreatetime());
-        item.setUpdatetime(new Date());
+        item.setStatus(nowItem.getStatus());
+        item.setUpdatetime(updatetime);
+        ItemDesc itemDesc=new ItemDesc();
+        itemDesc.setItemId(nowItem.getId());
+        itemDesc.setItemDesc(desc);
+        itemDesc.setCreatetime(nowItem.getCreatetime());
+        itemDesc.setUpdatetime(updatetime);
+        itemMapper.updateByPrimaryKey(item);
+        itemDescMapper.updateByPrimaryKey(itemDesc);
         return YZResult.ok();
     }
 
@@ -103,6 +112,12 @@ public class ItemServiceImpl implements ItemService {
         item.setUpdatetime(new Date());
         itemMapper.updateByPrimaryKeySelective(item);
         return YZResult.ok();
+    }
+
+    @Override
+    public String getItemDesc(@RequestParam("ids") String id) {
+        ItemDesc item = itemDescMapper.selectByPrimaryKey(id);
+        return item.getItemDesc();
     }
 
 }

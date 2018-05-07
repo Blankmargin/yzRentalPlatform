@@ -109,10 +109,11 @@
         $.post("/item/save",$("#itemAddForm").serialize(), function(data){
             if(data.status == 200){
                 $.messager.alert('提示','新增商品成功!');
+                $(".tree-title:contains('查询商品')").parent().click();
+                $('#tabs').tabs('close','新增商品');
             }
         });
     }
-
     function clearForm(){
         $('#itemAddForm').form('reset');
         itemAddEditor.html('');

@@ -37,9 +37,9 @@
 			<li>
 				<span>用户管理</span>
 				<ul>
-					<li data-options="attributes:{'url':'item-add'}">新增用户</li>
-					<li data-options="attributes:{'url':'item-list'}">查询用户</li>
-					<li data-options="attributes:{'url':'item-param-list'}">规格参数</li>
+					<li data-options="attributes:{'url':'user-add'}">新增用户</li>
+					<li data-options="attributes:{'url':'user-list'}">查询用户</li>
+					<li data-options="attributes:{'url':'user-param-list'}">规格参数</li>
 				</ul>
 			</li>
          	<li>
@@ -60,7 +60,7 @@
     <div data-options="region:'center',title:''">
     	<div id="tabs" class="easyui-tabs">
 		    <div title="首页" style="padding:20px;">
-		        	
+
 		    </div>
 		</div>
     </div>

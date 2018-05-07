@@ -17,7 +17,7 @@ public interface ItemService {
     YZResult addItem(Item item, String desc);
 
     //    编辑商品
-    YZResult editItem(String id, Item item);
+    YZResult editItem(String id, String desc,Item item);
 
     //    删除选中的商品
     YZResult deleteItemById(@RequestParam("ids") String id, Item item);
@@ -27,4 +27,7 @@ public interface ItemService {
 
     //    下架商品
     YZResult instockItem(@RequestParam("ids") String id, Item item);
+
+    //    获得商品描述
+    String getItemDesc(@RequestParam("ids") String id);
 }
