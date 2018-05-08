@@ -29,5 +29,5 @@ public interface ItemService {
     YZResult instockItem(@RequestParam("ids") String id, Item item);
 
     //    获得商品描述
-    String getItemDesc(@RequestParam("ids") String id);
+    String getItemDesc(String id);
 }

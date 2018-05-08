@@ -3,6 +3,8 @@ package com.fhh.manager.controller;
 import com.fhh.domain.EasyUIDataGridResult;
 import com.fhh.pojo.Item;
 import com.fhh.manager.service.ItemService;
+import com.fhh.pojo.ItemDesc;
+import com.fhh.utils.JsonUtils;
 import com.fhh.utils.YZResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,9 +64,9 @@ public class ItemController {
     }
 
     //获得商品描述信息
-    @RequestMapping(value = "/item/desc",method = RequestMethod.POST)
+    @RequestMapping(value = "/rest/item/desc/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public String getItemDesc(@RequestParam("ids") String id){
+    public String getItemDesc(@PathVariable String id){
         String itemDesc = itemService.getItemDesc(id);
         return itemDesc;
     }

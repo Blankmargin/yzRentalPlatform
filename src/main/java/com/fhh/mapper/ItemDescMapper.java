@@ -16,4 +16,6 @@ public interface ItemDescMapper {
     int updateByPrimaryKeyWithBLOBs(ItemDesc record);
 
     int updateByPrimaryKey(ItemDesc record);
+
+    String getItemDescById(String id);
 }

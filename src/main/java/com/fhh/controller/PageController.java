@@ -45,9 +45,4 @@ public class PageController {
     public String showPage(@PathVariable String page) {
         return page;
     }
-
-    @RequestMapping("/item/list/show")
-    public String showList(){
-        return "item-list";
-    }
 }

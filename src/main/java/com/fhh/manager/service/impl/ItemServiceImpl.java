@@ -12,12 +12,14 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemMapper itemMapper;
@@ -75,6 +77,7 @@ public class ItemServiceImpl implements ItemService {
     public YZResult editItem(String id,String desc, Item item) {
         Date updatetime=new Date();
         Item nowItem = itemMapper.selectByPrimaryKey(id);
+//        ItemDesc nowItemDesc=itemDescMapper.selectByPrimaryKey(id);
         item.setCreatetime(nowItem.getCreatetime());
         item.setStatus(nowItem.getStatus());
         item.setUpdatetime(updatetime);
@@ -84,7 +87,7 @@ public class ItemServiceImpl implements ItemService {
         itemDesc.setCreatetime(nowItem.getCreatetime());
         itemDesc.setUpdatetime(updatetime);
         itemMapper.updateByPrimaryKey(item);
-        itemDescMapper.updateByPrimaryKey(itemDesc);
+        itemDescMapper.updateByPrimaryKeyWithBLOBs(itemDesc);
         return YZResult.ok();
     }
 
@@ -115,9 +118,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public String getItemDesc(@RequestParam("ids") String id) {
-        ItemDesc item = itemDescMapper.selectByPrimaryKey(id);
-        return item.getItemDesc();
+    public String getItemDesc(String id) {
+        String itemDesc = itemDescMapper.getItemDescById(id);
+        return itemDesc;
     }
 
 }
