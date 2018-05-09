@@ -83,5 +83,12 @@
         <property name="conf" value="E:/study/yzRentalPlatform/src/main/resources/FastDfs.conf"/>
         <!--首页轮播图contentId-->
         <property name="contentId" value="89"/>
+        <!--商品搜索每页默认显示条数-->
+        <property name="searchRows" value="60"/>
+    </bean>
+
+    <!--初始化solr-->
+    <bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
+        <constructor-arg index="0" value="http://192.168.25.129:8080/solr/collection1"/>
     </bean>
 </beans>

@@ -22,22 +22,17 @@ public class PageController {
     @Autowired
     private ConfigConstants configConstants;
 
-//    @RequestMapping("/manager")
-//    public String showManagerIndex(){
-//        return "index-manager";
-//    }
-
-    @RequestMapping("/")
+    @RequestMapping("/manager")
     public String showManagerIndex() {
         return "index-manager";
     }
 
-    @RequestMapping("/index")
-    public String showIndex(Model model){
+    @RequestMapping("/")
+    public String showIndex(Model model) {
         //查询内容列表
         List<Content> adList = contentService.getContentListByCid(configConstants.getContentId());
         //把结果传给页面
-        model.addAttribute("adList",adList);
+        model.addAttribute("adList", adList);
         return "index";
     }
 

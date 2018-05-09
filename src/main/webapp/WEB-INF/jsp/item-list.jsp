@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <table class="easyui-datagrid" id="itemList" title="商品列表"
-       data-options="singleSelect:true,collapsible:true,pagination:true,url:'/item/list',method:'get',pageSize:30,toolbar:toolbar">
+       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/item/list',method:'get',pageSize:30,toolbar:toolbar">
     <thead>
     <tr>
         <th data-options="field:'ck',checkbox:true"></th>
@@ -13,7 +13,6 @@
         <th data-options="field:'status',width:60,align:'center',formatter:E3.formatItemStatus">状态</th>
         <th data-options="field:'createtime',width:130,align:'center',formatter:E3.formatDateTime">创建日期</th>
         <th data-options="field:'updatetime',width:130,align:'center',formatter:E3.formatDateTime">更新日期</th>
-        <%--,hidden:true--%>
     </tr>
     </thead>
 </table>
@@ -53,8 +52,6 @@
             $("#itemEditWindow").window({
                 onLoad :function(){
 
-                    // console.log(1111111);
-
                     //回显数据
                     var data = $("#itemList").datagrid("getSelections")[0];
                     data.priceView = E3.formatPrice(data.price);
@@ -62,15 +59,8 @@
 
                     // 加载商品描述
                     // /rest/item/query
-                    console.log(itemEditEditor);
                     $.get('/rest/item/desc/'+data.id,null,function(data){
-                        // if(_data.status == 200){
-                        // console.log(data);
-                        // console.log(itemEditEditor.html(data));
-                        //     UM.getEditor('itemeEditDescEditor').setContent(_data, true);
-                        //     var itemDesc=JSON.parse(data);
                         itemEditEditor.text(data);
-                        // }
                     });
 
                     //加载商品规格

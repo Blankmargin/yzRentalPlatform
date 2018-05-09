@@ -341,7 +341,7 @@ a.submit5:hover{color:#fff;background:url(../images/productinfo.png) no-repeat -
 /*--------页脚----------*/
 .pageFooter{ width:1200px;margin:0 auto;}
 .pageFooter .middle{ float:left; width:290px; height:145px; margin:20px 0px 0px 10px; background:url(../images/foot/logo.jpg) no-repeat left top;}
-.pageFooter .middle ul{ padding:85px 0 0 0;}
+.pageFooter .middle ul{ padding:95px 0 0 0;}
 .pageFooter .middle .kefu{ font-size:20px; color:#646464; font-weight:bold; padding:6px 0;}
 .pageFooter .left{float:left;margin:35px 0 0 0;width:235px;height:145px;}
 .pageFooter .left ul{margin:0px;padding:0px 0px 0px 0px;float:left;}

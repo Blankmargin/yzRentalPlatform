@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * 内容分类管理Controller
+ */
 @Controller
 public class ContentCatController {
     @Autowired
