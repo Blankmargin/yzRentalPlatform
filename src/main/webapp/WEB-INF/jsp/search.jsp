@@ -49,17 +49,17 @@
          <li>
             <div class="l-wrap">
 				<div class="pic">
-					<a class="trackref" href="http://localhost:8086/item/${item.id}.html" title="" target="_blank">
+					<a class="trackref" href="http://localhost:8080/item/${item.id}.html" title="" target="_blank">
 						<img src="${item.image }" style="display:inline"/>
 					</a>
 				</div>
 	            <div class="price">
-					<span><span class="p-now">￥<strong><fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price / 100 }"/></strong></span><span class="p-nor"></span><span class="active" style="">直降</span></span>			
+					<span><span class="p-now">￥<strong><fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price}"/></strong></span><span class="p-nor"></span><span class="active" style="">直降</span></span>
 				</div>
 	            <div class="title-a">
-	                <a class="trackref presaleSign_225865" href="http://localhost:8086/item/${item.id}.html" target="_blank">${item.title }</a>
+	                <a class="trackref presaleSign_225865" href="http://localhost:8080/item/${item.id}.html" target="_blank">${item.title }</a>
 	            </div>
-	        	<div class="title-b" style=""><a class="trackref" href="http://localhost:8086/item/${item.id}.html" target="_blank">${sell_point }</a></div>
+	        	<div class="title-b" style=""><a class="trackref" href="http://localhost:8080/item/${item.id}.html" target="_blank">${sell_point }</a></div>
 	            <div class="comment">
 	                <div class="owner_shop_list">自营</div>                    
 	            </div>
@@ -85,7 +85,7 @@
   </div>
   
   <jsp:include page="commons_search/footer.jsp" />
-<script type="text/javascript" src="/js/common_search.js?v=20160713"></script>
+<script type="text/javascript" src="/js/common.js?v=20160713"></script>
 <script type="text/javascript" src="/js/cart.js?v=20160713"></script>
 <script type="text/javascript" src="/js/jquery.alerts.js"></script>
 <script type="text/javascript" src="/js/NewVersion.js?v=20160713"></script>

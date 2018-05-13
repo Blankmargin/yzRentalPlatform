@@ -87,8 +87,47 @@
         <property name="searchRows" value="60"/>
     </bean>
 
-    <!--初始化solr-->
-    <bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
-        <constructor-arg index="0" value="http://192.168.25.129:8080/solr/collection1"/>
+    <!--配置单机版solr-->
+    <!--<bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">-->
+        <!--<constructor-arg index="0" value="http://192.168.25.129:8080/solr/collection1"/>-->
+    <!--</bean>-->
+
+    <!--配置solr集群-->
+    <bean id="cloudSolrServer" class="org.apache.solr.client.solrj.impl.CloudSolrServer">
+        <constructor-arg index="0" value="192.168.25.129:2181,192.168.25.129:2182,192.168.25.129:2183"/>
+        <property name="defaultCollection" value="collection2"/>
+    </bean>
+
+    <!--配置ActiveMq-->
+    <!--配置ConnectionFactory-->
+    <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://192.168.25.129:61616"/>
+    </bean>
+
+    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
+    </bean>
+
+    <!--配置生产者-->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+    </bean>
+
+    <!--配置点对点目的地-->
+    <bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="queue"/>
+    </bean>
+
+    <!--配置一对多目的地-->
+    <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="topic"/>
+    </bean>
+
+    <!--监听商品添加同步索引库消息-->
+    <bean id="itemAddMessageListener" class="com.fhh.protal.message.ItemAddMessageListener"></bean>
+    <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="topicDestination"/>
+        <property name="messageListener" ref="itemAddMessageListener"/>
     </bean>
 </beans>

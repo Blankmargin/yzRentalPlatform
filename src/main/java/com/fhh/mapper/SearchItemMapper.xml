@@ -4,4 +4,8 @@
   <select id="getItemList" resultType="com.fhh.domain.SearchItem">
     select a.id,a.title,a.sell_point,a.price,a.image,b.name category_name from tb_item a left join tb_item_cat b on a.cid=b.id where a.status=1
   </select>
+  
+  <select id="getItemById" parameterType="java.lang.String" resultType="com.fhh.domain.SearchItem">
+    select a.id,a.title,a.sell_point,a.price,a.image,b.name category_name from tb_item a left join tb_item_cat b on a.cid=b.id where a.status=1 and a.id=#{itemId}
+  </select>
 </mapper>

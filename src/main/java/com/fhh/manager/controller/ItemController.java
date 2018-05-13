@@ -18,13 +18,6 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
-    @RequestMapping("/item/{itemId}")
-    @ResponseBody
-    public Item getItemById(@PathVariable String itemId) {
-        Item item = itemService.getItemById(itemId);
-        return item;
-    }
-
     //显示商品列表
     @RequestMapping("/item/list")
     @ResponseBody

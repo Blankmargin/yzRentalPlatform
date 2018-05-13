@@ -10,11 +10,18 @@ import com.fhh.utils.IDUtils;
 import com.fhh.utils.YZResult;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +33,12 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemDescMapper itemDescMapper;
+
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @Resource
+    private Destination topicDestination;
 
     @Override
     public Item getItemById(String id) {
@@ -51,7 +64,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public YZResult addItem(Item item, String desc) {
 //        生成商品id
-        String itemId = IDUtils.getItemId();
+        final String itemId = IDUtils.getItemId();
 //        补全item属性
         item.setId(itemId);
 //        1:正常 2：下架 3：删除
@@ -69,6 +82,13 @@ public class ItemServiceImpl implements ItemService {
         itemMapper.insert(item);
 //        向商品描述表插入信息
         itemDescMapper.insert(itemDesc);
+        //发送商品添加消息
+        jmsTemplate.send(topicDestination, new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                return session.createTextMessage(itemId);
+            }
+        });
 //        返回成功信息
         return YZResult.ok();
     }
@@ -121,6 +141,11 @@ public class ItemServiceImpl implements ItemService {
     public String getItemDesc(String id) {
         String itemDesc = itemDescMapper.getItemDescById(id);
         return itemDesc;
+    }
+
+    @Override
+    public ItemDesc getItemDescById(String id) {
+        return itemDescMapper.selectByPrimaryKey(id);
     }
 
 }

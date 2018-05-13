@@ -29,4 +29,6 @@
         <!--设定文件上传的最大值5mb-->
         <property name="maxUploadSize" value="5242880"/>
     </bean>
+    <!--全局异常处理器-->
+    <bean class="com.fhh.exception.GlobalExceptionResolver"/>
 </beans>

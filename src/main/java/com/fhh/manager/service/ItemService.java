@@ -30,4 +30,7 @@ public interface ItemService {
 
     //    获得商品描述
     String getItemDesc(String id);
+
+    ItemDesc getItemDescById(String id);
+
 }
