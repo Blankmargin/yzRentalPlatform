@@ -3,114 +3,74 @@ package com.fhh.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
-    private String userId;
+public class User implements Serializable{
+    private String id;
 
-    private String userName;
+    private String username;
 
-    private String userLoginName;
+    private String password;
 
-    private Integer userAge;
+    private String phone;
 
-    private String userPassword;
+    private String email;
 
-    private String userSex;
+    private Date createtime;
 
-    private Date userBirthday;
+    private Date updatetime;
 
-    private Integer userRole;
-
-    private String userTelphone;
-
-    private Date userCreatetime;
-
-    private Date userUpdatetime;
-
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
-    public String getUserLoginName() {
-        return userLoginName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserLoginName(String userLoginName) {
-        this.userLoginName = userLoginName == null ? null : userLoginName.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 
-    public Integer getUserAge() {
-        return userAge;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setUserAge(Integer userAge) {
-        this.userAge = userAge;
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword == null ? null : userPassword.trim();
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 
-    public String getUserSex() {
-        return userSex;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setUserSex(String userSex) {
-        this.userSex = userSex == null ? null : userSex.trim();
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public Date getUserBirthday() {
-        return userBirthday;
+    public Date getUpdatetime() {
+        return updatetime;
     }
 
-    public void setUserBirthday(Date userBirthday) {
-        this.userBirthday = userBirthday;
-    }
-
-    public Integer getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(Integer userRole) {
-        this.userRole = userRole;
-    }
-
-    public String getUserTelphone() {
-        return userTelphone;
-    }
-
-    public void setUserTelphone(String userTelphone) {
-        this.userTelphone = userTelphone == null ? null : userTelphone.trim();
-    }
-
-    public Date getUserCreatetime() {
-        return userCreatetime;
-    }
-
-    public void setUserCreatetime(Date userCreatetime) {
-        this.userCreatetime = userCreatetime;
-    }
-
-    public Date getUserUpdatetime() {
-        return userUpdatetime;
-    }
-
-    public void setUserUpdatetime(Date userUpdatetime) {
-        this.userUpdatetime = userUpdatetime;
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 }

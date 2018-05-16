@@ -2,163 +2,125 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.fhh.mapper.UserMapper" >
   <resultMap id="BaseResultMap" type="com.fhh.pojo.User" >
-    <id column="user_id" property="userId" jdbcType="VARCHAR" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="user_login_name" property="userLoginName" jdbcType="VARCHAR" />
-    <result column="user_age" property="userAge" jdbcType="INTEGER" />
-    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
-    <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
-    <result column="user_birthday" property="userBirthday" jdbcType="DATE" />
-    <result column="user_role" property="userRole" jdbcType="INTEGER" />
-    <result column="user_telphone" property="userTelphone" jdbcType="VARCHAR" />
-    <result column="user_createtime" property="userCreatetime" jdbcType="TIMESTAMP" />
-    <result column="user_updatetime" property="userUpdatetime" jdbcType="TIMESTAMP" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    user_id, user_name, user_login_name, user_age, user_password, user_sex, user_birthday, 
-    user_role, user_telphone, user_createtime, user_updatetime
+    id, username, password, phone, email, createtime, updatetime
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from tb_user
-    where user_id = #{userId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectUserByUsername" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from tb_user where username = #{username}
+  </select>
+  <select id="selectUserByPhone" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from tb_user where phone = #{phone}
+  </select>
+  <select id="selectUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from tb_user where email = #{email}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tb_user
-    where user_id = #{userId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.fhh.pojo.User" >
-    insert into tb_user (user_id, user_name, user_login_name, 
-      user_age, user_password, user_sex, 
-      user_birthday, user_role, user_telphone, 
-      user_createtime, user_updatetime)
-    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userLoginName,jdbcType=VARCHAR}, 
-      #{userAge,jdbcType=INTEGER}, #{userPassword,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, 
-      #{userBirthday,jdbcType=DATE}, #{userRole,jdbcType=INTEGER}, #{userTelphone,jdbcType=VARCHAR}, 
-      #{userCreatetime,jdbcType=TIMESTAMP}, #{userUpdatetime,jdbcType=TIMESTAMP})
+    insert into tb_user (id, username, password, 
+      phone, email, createtime, 
+      updatetime)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.fhh.pojo.User" >
     insert into tb_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="userId != null" >
-        user_id,
+      <if test="id != null" >
+        id,
       </if>
-      <if test="userName != null" >
-        user_name,
+      <if test="username != null" >
+        username,
       </if>
-      <if test="userLoginName != null" >
-        user_login_name,
+      <if test="password != null" >
+        password,
       </if>
-      <if test="userAge != null" >
-        user_age,
+      <if test="phone != null" >
+        phone,
       </if>
-      <if test="userPassword != null" >
-        user_password,
+      <if test="email != null" >
+        email,
       </if>
-      <if test="userSex != null" >
-        user_sex,
+      <if test="createtime != null" >
+        createtime,
       </if>
-      <if test="userBirthday != null" >
-        user_birthday,
-      </if>
-      <if test="userRole != null" >
-        user_role,
-      </if>
-      <if test="userTelphone != null" >
-        user_telphone,
-      </if>
-      <if test="userCreatetime != null" >
-        user_createtime,
-      </if>
-      <if test="userUpdatetime != null" >
-        user_updatetime,
+      <if test="updatetime != null" >
+        updatetime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="userId != null" >
-        #{userId,jdbcType=VARCHAR},
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="userName != null" >
-        #{userName,jdbcType=VARCHAR},
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
       </if>
-      <if test="userLoginName != null" >
-        #{userLoginName,jdbcType=VARCHAR},
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
       </if>
-      <if test="userAge != null" >
-        #{userAge,jdbcType=INTEGER},
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="userPassword != null" >
-        #{userPassword,jdbcType=VARCHAR},
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
       </if>
-      <if test="userSex != null" >
-        #{userSex,jdbcType=VARCHAR},
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="userBirthday != null" >
-        #{userBirthday,jdbcType=DATE},
-      </if>
-      <if test="userRole != null" >
-        #{userRole,jdbcType=INTEGER},
-      </if>
-      <if test="userTelphone != null" >
-        #{userTelphone,jdbcType=VARCHAR},
-      </if>
-      <if test="userCreatetime != null" >
-        #{userCreatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="userUpdatetime != null" >
-        #{userUpdatetime,jdbcType=TIMESTAMP},
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.fhh.pojo.User" >
     update tb_user
     <set >
-      <if test="userName != null" >
-        user_name = #{userName,jdbcType=VARCHAR},
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="userLoginName != null" >
-        user_login_name = #{userLoginName,jdbcType=VARCHAR},
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="userAge != null" >
-        user_age = #{userAge,jdbcType=INTEGER},
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="userPassword != null" >
-        user_password = #{userPassword,jdbcType=VARCHAR},
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="userSex != null" >
-        user_sex = #{userSex,jdbcType=VARCHAR},
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="userBirthday != null" >
-        user_birthday = #{userBirthday,jdbcType=DATE},
-      </if>
-      <if test="userRole != null" >
-        user_role = #{userRole,jdbcType=INTEGER},
-      </if>
-      <if test="userTelphone != null" >
-        user_telphone = #{userTelphone,jdbcType=VARCHAR},
-      </if>
-      <if test="userCreatetime != null" >
-        user_createtime = #{userCreatetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="userUpdatetime != null" >
-        user_updatetime = #{userUpdatetime,jdbcType=TIMESTAMP},
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where user_id = #{userId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.fhh.pojo.User" >
     update tb_user
-    set user_name = #{userName,jdbcType=VARCHAR},
-      user_login_name = #{userLoginName,jdbcType=VARCHAR},
-      user_age = #{userAge,jdbcType=INTEGER},
-      user_password = #{userPassword,jdbcType=VARCHAR},
-      user_sex = #{userSex,jdbcType=VARCHAR},
-      user_birthday = #{userBirthday,jdbcType=DATE},
-      user_role = #{userRole,jdbcType=INTEGER},
-      user_telphone = #{userTelphone,jdbcType=VARCHAR},
-      user_createtime = #{userCreatetime,jdbcType=TIMESTAMP},
-      user_updatetime = #{userUpdatetime,jdbcType=TIMESTAMP}
-    where user_id = #{userId,jdbcType=VARCHAR}
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

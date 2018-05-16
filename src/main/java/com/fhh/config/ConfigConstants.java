@@ -9,6 +9,10 @@ public class ConfigConstants {
     private long contentId;
     //商品搜索每页默认显示条数
     private int searchRows;
+    //Session的过期时间
+    private int sessionExpire;
+
+    private String tokenKey="";
 
     public String getImageServerUrl() {
         return imageServerUrl;
@@ -40,5 +44,21 @@ public class ConfigConstants {
 
     public void setSearchRows(int searchRows) {
         this.searchRows = searchRows;
+    }
+
+    public int getSessionExpire() {
+        return sessionExpire;
+    }
+
+    public void setSessionExpire(int sessionExpire) {
+        this.sessionExpire = sessionExpire;
+    }
+
+    public String getTokenKey() {
+        return tokenKey;
+    }
+
+    public void setTokenKey(String tokenKey) {
+        this.tokenKey = tokenKey;
     }
 }

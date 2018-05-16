@@ -31,7 +31,6 @@
          		<ul>
 	         		<li data-options="attributes:{'url':'item-add'}">新增商品</li>
 	         		<li data-options="attributes:{'url':'item-list'}">查询商品</li>
-	         		<li data-options="attributes:{'url':'item-param-list'}">规格参数</li>
 	         	</ul>
          	</li>
 			<li>
@@ -39,7 +38,6 @@
 				<ul>
 					<li data-options="attributes:{'url':'user-add'}">新增用户</li>
 					<li data-options="attributes:{'url':'user-list'}">查询用户</li>
-					<li data-options="attributes:{'url':'user-param-list'}">规格参数</li>
 				</ul>
 			</li>
          	<li>

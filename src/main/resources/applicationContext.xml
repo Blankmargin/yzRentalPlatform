@@ -72,7 +72,7 @@
     <!-- 切面 -->
     <aop:config>
         <aop:advisor advice-ref="txAdvice"
-                     pointcut="execution(* com.fhh.manager.service..*.*(..))"/>
+                     pointcut="execution(* com.fhh..*.*(..))"/>
     </aop:config>
 
     <!--本地配置-->
@@ -85,6 +85,10 @@
         <property name="contentId" value="89"/>
         <!--商品搜索每页默认显示条数-->
         <property name="searchRows" value="60"/>
+        <!--Session过期时间-->
+        <property name="sessionExpire" value="1800"/>
+        <!--Cookie中保存的token-->
+        <property name="tokenKey" value="token"/>
     </bean>
 
     <!--配置单机版solr-->
@@ -129,5 +133,23 @@
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destination" ref="topicDestination"/>
         <property name="messageListener" ref="itemAddMessageListener"/>
+    </bean>
+
+    <!--监听商品添加生成静态化页面消息-->
+    <!--<bean id="htmlGenListener" class="com.fhh.protal.message.HtmlGenListener"></bean>-->
+    <!--<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">-->
+        <!--<property name="connectionFactory" ref="connectionFactory"/>-->
+        <!--<property name="destination" ref="topicDestination"/>-->
+        <!--<property name="messageListener" ref="htmlGenListener"/>-->
+    <!--</bean>-->
+
+    <!--redis单机版连接-->
+    <bean id="jedisClientPool" class="com.fhh.utils.JedisClientPool">
+        <property name="jedisPool" ref="jedisPool"/>
+    </bean>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="host" value="192.168.25.129"/>
+        <constructor-arg name="port" value="6379"/>
     </bean>
 </beans>
