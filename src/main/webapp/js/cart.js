@@ -269,11 +269,11 @@ function buyelse(pid){
 //@param bs  加入时是否验证商品的礼品袋开关  1,是;0,否
 //@param obj 加入按钮对象
 //@param cfrom 从哪里点击的购物按钮
-function cartAdd(product_id,cart_type,opencity_id, flag,bs, obj, cfrom){
+function cartAdd(itemId,cart_type,opencity_id, flag,bs, obj, cfrom){
     //取购物车商品数量
-	var num = $("#number_" + product_id).val();
+	var num = $("#number_" + itemId).val();
 	//拼装url参数，做跳转
-	location.href="http://localhost:8089/cart/add/"+product_id+".html?num=" + num;
+	location.href="http://localhost:8080/cart/add/"+itemId+"?num=" + num;
 }
 
 //首页添加购物车
@@ -511,3 +511,57 @@ function closeCart(obj)
   $(".gBtn").hide();
 
 }
+
+var CART = {
+	itemNumChange : function(){
+		$(".increment").click(function(){//＋
+			var _thisInput = $(this).siblings("input");
+			_thisInput.val(eval(_thisInput.val()) + 1);
+			$.post("/cart/update/num/"+_thisInput.attr("itemId")+"/"+_thisInput.val() ,function(data){
+				CART.refreshTotalPrice();
+                // CART.refreshSubtotal();
+			});
+		});
+		$(".decrement").click(function(){//-
+			var _thisInput = $(this).siblings("input");
+			if(eval(_thisInput.val()) == 1){
+				return ;
+			}
+			_thisInput.val(eval(_thisInput.val()) - 1);
+			$.post("/cart/update/num/"+_thisInput.attr("itemId")+"/"+_thisInput.val() ,function(data){
+				CART.refreshTotalPrice();
+				// CART.refreshSubtotal();
+			});
+		});
+	},
+	refreshTotalPrice : function(){ //重新计算总价
+		var total = 0;
+		$(".itemnum").each(function(i,e){
+			var _this = $(e);
+			total += (eval(_this.attr("itemPrice")) * 10000 * eval(_this.val())) / 10000;
+
+		});
+		$("#allMoney2").html(new Number(total).toFixed(2)).priceFormat({ //价格格式化插件
+			 prefix: '¥',
+			 thousandsSeparator: ',',
+			 centsLimit: 2
+		});
+	},
+
+	refreshSubtotal:function(){//重新计算小计
+        // var subtotal=0;
+        // $(".itemnum").each(function(i,e){
+        //     var _this = $(e);
+        //     subtotal=eval(_this.attr("itemPrice"))*eval(_this.attr("itemNum"));
+        // });
+        // $("#total_price").html(new Number(1000).toFixed(2)).priceFormat({ //价格格式化插件
+        //     prefix: '¥',
+        //     thousandsSeparator: ',',
+        //     centsLimit: 2
+        // });
+    }
+};
+
+$(function(){
+	CART.itemNumChange();
+});

@@ -11,6 +11,8 @@ public class ConfigConstants {
     private int searchRows;
     //Session的过期时间
     private int sessionExpire;
+    //cookie中购物车的保存时间
+    private int cookieCartExpire;
 
     private String tokenKey="";
 
@@ -60,5 +62,13 @@ public class ConfigConstants {
 
     public void setTokenKey(String tokenKey) {
         this.tokenKey = tokenKey;
+    }
+
+    public int getCookieCartExpire() {
+        return cookieCartExpire;
+    }
+
+    public void setCookieCartExpire(int cookieCartExpire) {
+        this.cookieCartExpire = cookieCartExpire;
     }
 }

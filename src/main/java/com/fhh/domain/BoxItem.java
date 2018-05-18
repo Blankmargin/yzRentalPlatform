@@ -4,9 +4,8 @@ import com.fhh.pojo.Item;
 
 import java.io.Serializable;
 
-public class ProtalItem extends Item implements Serializable{
-
-    public ProtalItem(Item item) {
+public class BoxItem extends Item implements Serializable{
+    public BoxItem(Item item) {
         this.setId(item.getId());
         this.setTitle(item.getTitle());
         this.setSellPoint(item.getSellPoint());

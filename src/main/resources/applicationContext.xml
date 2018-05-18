@@ -89,6 +89,8 @@
         <property name="sessionExpire" value="1800"/>
         <!--Cookie中保存的token-->
         <property name="tokenKey" value="token"/>
+        <!--设置Cookie中购物车的保存时间为1天-->
+        <property name="cookieCartExpire" value="10800"/>
     </bean>
 
     <!--配置单机版solr-->

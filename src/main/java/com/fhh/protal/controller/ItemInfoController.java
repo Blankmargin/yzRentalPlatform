@@ -1,6 +1,6 @@
 package com.fhh.protal.controller;
 
-import com.fhh.domain.ProtalItem;
+import com.fhh.domain.BoxItem;
 import com.fhh.manager.service.ItemService;
 import com.fhh.pojo.Item;
 import com.fhh.pojo.ItemDesc;
@@ -21,7 +21,7 @@ public class ItemInfoController {
     @RequestMapping("/item/{itemId}")
     public String showItemInfo(@PathVariable String itemId, Model model){
         Item item = itemService.getItemById(itemId);
-        ProtalItem protalItem=new ProtalItem(item);
+        BoxItem protalItem=new BoxItem(item);
         ItemDesc itemDesc = itemService.getItemDescById(itemId);
         model.addAttribute("item",protalItem);
         model.addAttribute("itemDesc",itemDesc);

@@ -31,7 +31,7 @@
             <i></i>
             <div class="client-txt">
               <em>扫描我，即可下载</em>
-              <strong>易租物品租赁平台客户端</strong>
+              <strong>宜立方商城客户端</strong>
             </div>
           </div>
           <div class="app-btn">
