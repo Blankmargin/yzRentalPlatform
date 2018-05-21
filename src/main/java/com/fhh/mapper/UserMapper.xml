@@ -28,6 +28,9 @@
   <select id="selectUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
     select * from tb_user where email = #{email}
   </select>
+  <select id="getAllUser" resultMap="BaseResultMap">
+    select * from tb_user
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tb_user
     where id = #{id,jdbcType=VARCHAR}

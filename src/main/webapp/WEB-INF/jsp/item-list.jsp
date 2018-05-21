@@ -4,11 +4,11 @@
     <thead>
     <tr>
         <th data-options="field:'ck',checkbox:true"></th>
-        <th data-options="field:'id',width:60">商品ID</th>
+        <th data-options="field:'id',width:200">商品ID</th>
         <th data-options="field:'title',width:200">商品标题</th>
         <th data-options="field:'cid',width:100">子类目</th>
         <th data-options="field:'sellPoint',width:100">卖点</th>
-        <th data-options="field:'price',width:70,align:'right',formatter:E3.formatPrice">价格</th>
+        <th data-options="field:'price',width:70,align:'right',formatter:E3.formatPrice">租金</th>
         <th data-options="field:'num',width:70,align:'right'">库存数量</th>
         <th data-options="field:'status',width:60,align:'center',formatter:E3.formatItemStatus">状态</th>
         <th data-options="field:'createtime',width:130,align:'center',formatter:E3.formatDateTime">创建日期</th>

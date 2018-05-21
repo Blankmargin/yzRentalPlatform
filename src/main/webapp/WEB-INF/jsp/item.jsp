@@ -60,7 +60,7 @@
 <jsp:include page="commons_search/header.jsp" />
 <!-- header end -->
 <jsp:include page="commons_search/mainmenu.jsp" />
-<div class="linknav"><div class="breadcrumb"><strong><a href="/food/6-0-0-0-0-2-0-0-0-0-0.html">休闲食品</a></strong><span> &gt; <a href="/food/7321-0-0-0-0-2-0-0-0-0-0.html">月饼</a> &gt; <a href="/food/7331-0-0-0-0-2-0-0-0-0-0.html">其他月饼</a> &gt; <a href="http://www.e3mall.cn/pinpai/7331-10863.html">我是花吃</a> &gt; 我是花吃 我是花吃鲜花月饼团圆礼盒390g</span></div></div>
+<%--<div class="linknav"><div class="breadcrumb"><strong><a href="/food/6-0-0-0-0-2-0-0-0-0-0.html">休闲食品</a></strong><span> &gt; <a href="/food/7321-0-0-0-0-2-0-0-0-0-0.html">月饼</a> &gt; <a href="/food/7331-0-0-0-0-2-0-0-0-0-0.html">其他月饼</a> &gt; <a href="http://www.e3mall.cn/pinpai/7331-10863.html">我是花吃</a> &gt; 我是花吃 我是花吃鲜花月饼团圆礼盒390g</span></div></div>--%>
 <div class="pWrap">
     <div class="productIntro">
         <div class="pItems">
@@ -73,7 +73,7 @@
                 </div>
                 <div class="pItemsPrice" id="price-sf">
                 	<div class="priceBox">
-                		<span class="dt">优选价：</span><span class="rmb">￥</span>
+                		<span class="dt">租金：</span><span class="rmb">￥</span>
                 		<strong class="price"><fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price}"/></strong>
                 	</div>
                 	<div class="boxWb"></div><div id="productStamp" class="productStamp_1"></div></div>
@@ -84,12 +84,12 @@
                     <div class="dt">送至：</div>
                     <div class="dd">
                         <div id="regionSf"><div class="" id="store-selector">
-	    <div class="text"><div title="北京昌平区回龙观镇">北京昌平区回龙观镇</div><b></b></div>
+	    <div class="text"><div>重庆大学城市科技学院3栋402</div><b></b></div>
 	    
 	    <div onclick="$('#store-selector').removeClass('hover')" class="close"></div>
 	  </div>
 	  </div>
-                        <div class="pItemsPrompt" id="time-sf">原产地直供，发货后预计<strong>2-5天</strong>内为您送达</div>
+                        <%--<div class="pItemsPrompt" id="time-sf">原产地直供，发货后预计<strong>2-5天</strong>内为您送达</div>--%>
                     </div>
                     <span class="clear"></span>
                 </div>
@@ -204,10 +204,10 @@
 					     		                </div>
                 <div class="pdetail">
                     <ul>
-                                                <li>品牌：<span><a href="http://www.e3mall.cn/pinpai/7331-10863.html" title="我是花吃" target="_blank">我是花吃</a></span></li>
-                                                <li>产地：<span><a href="/food/7331-0-45-0-0-2-0-0-0-0-0.html" title="中国" target="_blank">中国</a></span>
-                        </li>
-					                                                    <li>重量：1.4kg （含包装）</li>
+                                                <%--<li>品牌：<span><a href="http://www.e3mall.cn/pinpai/7331-10863.html" title="我是花吃" target="_blank">我是花吃</a></span></li>--%>
+                                                <%--<li>产地：<span><a href="/food/7331-0-45-0-0-2-0-0-0-0-0.html" title="中国" target="_blank">中国</a></span>--%>
+                        <%--</li>--%>
+					                                                    <%--<li>重量：1.4kg （含包装）</li>--%>
                                                 <li>商品编号：${item.id }</li>
                         			<li class="card-pay">
 			<span class="card-pay-left">优选卡</span>
@@ -215,10 +215,10 @@
 			</li>
 		                                                                          </ul>
                                         <div class="pDeclare">
-                         
+
                         <div class="nosupport"><b></b>本品不支持无理由退换货</div>
                                             </div>
-                                    </div>       
+                                    </div>
                 <div class="pcommdetail">
                     <dl class="prate">
                         <dt>好评度：</dt>
@@ -245,21 +245,21 @@
         </div>
         <div class="clear" id="flow-layer-sf"></div>
 		<div class="pCont cpjs_box" id="div-detail">
-			<ul class="cpjs_list">
-				<li><strong>保质期：</strong>60（天）</li>
-				<li><strong>重量(含包装)：</strong>1.4（kg）</li>
-				<li><strong>销售单位：</strong>盒</li>
-				<li><strong>产地：</strong>中国</li>
-			</ul>
+			<%--<ul class="cpjs_list">--%>
+				<%--<li><strong>保质期：</strong>60（天）</li>--%>
+				<%--<li><strong>重量(含包装)：</strong>1.4（kg）</li>--%>
+				<%--<li><strong>销售单位：</strong>盒</li>--%>
+				<%--<li><strong>产地：</strong>中国</li>--%>
+			<%--</ul>--%>
 			<div
 				style="background-color: #f5f5f5; padding: 4px 20px 4px 0; line-height: 20px; overflow: hidden; zoom: 1;">
-				<span style="float: left; width: 100px; text-align: right; padding-right: 6px; margin-right: 6px;">温馨提示：</span>
-				<span style="display: block; overflow: hidden; zoom: 1;">
-					宜立方商城所售商品均经过严格的供应商资质审查、商品审查、入库全检、出货全检流程。
-					由于部分商品存在厂家更换包装、不同批次、不同生产日期、不同生产工厂等情况，
-					导致商品实物与图片存在微小差异，因此请您以收到的商品实物为准，
-					同时我们会尽量做到及时更新，由此给您带来不便敬请谅解，谢谢！
-				</span>
+				<%--<span style="float: left; width: 100px; text-align: right; padding-right: 6px; margin-right: 6px;">温馨提示：</span>--%>
+				<%--<span style="display: block; overflow: hidden; zoom: 1;">--%>
+					<%--宜立方商城所售商品均经过严格的供应商资质审查、商品审查、入库全检、出货全检流程。--%>
+					<%--由于部分商品存在厂家更换包装、不同批次、不同生产日期、不同生产工厂等情况，--%>
+					<%--导致商品实物与图片存在微小差异，因此请您以收到的商品实物为准，--%>
+					<%--同时我们会尽量做到及时更新，由此给您带来不便敬请谅解，谢谢！--%>
+				<%--</span>--%>
 			</div>
 			<div class="pJiucuo">
 				如果您发现商品信息存在问题，<a target="_blank"
@@ -306,31 +306,20 @@
 				<h2 class="t">相关品牌</h2>
 				<ul class="pClass">
 					<li><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-10949.html#sfbest_item_1600229585_brand_1"
-						title="半岛月饼">半岛月饼</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-3342.html#sfbest_item_1600229585_brand_2"
-						title="元朗荣华">元朗荣华</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-2241.html#sfbest_item_1600229585_brand_3"
-						title="奇华">奇华</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-6626.html#sfbest_item_1600229585_brand_4"
-						title="迪士尼">迪士尼</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-10805.html#sfbest_item_1600229585_brand_5"
-						title="宜芝多">宜芝多</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-9347.html#sfbest_item_1600229585_brand_6"
-						title="日田食品">日田食品</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-10765.html#sfbest_item_1600229585_brand_7"
-						title="欧美香" style="display: none;">欧美香</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-10853.html#sfbest_item_1600229585_brand_8"
-						title="零食多" style="display: none;">零食多</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-10863.html#sfbest_item_1600229585_brand_9"
-						title="我是花吃" style="display: none;">我是花吃</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-2696.html#sfbest_item_1600229585_brand_10"
-						title="史努比 Snoopy" style="display: none;">史努比 Snoopy</a><a
-						target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-3662.html#sfbest_item_1600229585_brand_11"
-						title="郭元益" style="display: none;">郭元益</a><a target="_blank"
-						href="http://www.e3mall.cn/pinpai/7331-4986.html#sfbest_item_1600229585_brand_12"
-						title="佳宁娜" style="display: none;">佳宁娜</a></li>
+						href="#"
+						title="半岛月饼">联想</a><a target="_blank"
+						href="#"
+						title="元朗荣华">华硕</a><a target="_blank"
+						href="#"
+						title="奇华">戴尔</a><a target="_blank"
+						href="#"
+						title="迪士尼">神舟</a><a target="_blank"
+						href="#"
+						title="宜芝多">惠普</a><a target="_blank"
+						href="#"
+						title="日田食品">外星人</a><a target="_blank"
+						href="#"
+						title="欧美香" style="display: none;">苹果</a></li>
 				</ul>
 				<span class="clickShow"><b class="hide"></b></span>
 			</div>
@@ -342,21 +331,21 @@
             </div>
         </div>
 		<div class="l-recommend">
-			<div class="ct"><h2>购买此商品的顾客还买了</h2></div>
-            <div class="cm">
-                <ul class="l-buy" id="buyrebuy-sf"><li><div class="p-img"><a target="_blank" href="#"><img src="/images/small_1800005691_1_1_1.jpg"></a></div><div class="title-a"><a target="_blank" href="http://www.e3mall.cn/html/products/5/1800005691.html#trackref=sfbest_item_1600229585_buy1_1">归原Green Yard 有机鲜牛奶 486ml</a></div><div class="title-b">【下单后3-5天发货】外包装更换中，请以实物为准</div><div class="p-price">￥20</div></li></ul>
-            </div>
-        </div>
-        <div class="l-recommend">
-            <div class="ct"><h2>浏览此商品的顾客还浏览了</h2></div>
-            <div class="cm">
-                <ul class="l-buy" id="browserbrowse-sf"><li><div class="p-img"><a target="_blank" href="#"><img src="/images/small_1800005691_1_1_1.jpg"></a></div><div class="title-a"><a target="_blank" href="http://www.e3mall.cn/html/products/5/1800005691.html#trackref=sfbest_item_1600229585_see_1">归原Green Yard 有机鲜牛奶 486ml</a></div><div class="title-b">【下单后3-5天发货】外包装更换中，请以实物为准</div><div class="p-price">￥20</div></li></ul>
-            </div>
-        </div>
+			<%--<div class="ct"><h2>购买此商品的顾客还买了</h2></div>--%>
+            <%--<div class="cm">--%>
+                <%--<ul class="l-buy" id="buyrebuy-sf"><li><div class="p-img"><a target="_blank" href="#"><img src="/images/small_1800005691_1_1_1.jpg"></a></div><div class="title-a"><a target="_blank" href="http://www.e3mall.cn/html/products/5/1800005691.html#trackref=sfbest_item_1600229585_buy1_1">归原Green Yard 有机鲜牛奶 486ml</a></div><div class="title-b">【下单后3-5天发货】外包装更换中，请以实物为准</div><div class="p-price">￥20</div></li></ul>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<div class="l-recommend">--%>
+            <%--<div class="ct"><h2>浏览此商品的顾客还浏览了</h2></div>--%>
+            <%--<div class="cm">--%>
+                <%--<ul class="l-buy" id="browserbrowse-sf"><li><div class="p-img"><a target="_blank" href="#"><img src="/images/small_1800005691_1_1_1.jpg"></a></div><div class="title-a"><a target="_blank" href="http://www.e3mall.cn/html/products/5/1800005691.html#trackref=sfbest_item_1600229585_see_1">归原Green Yard 有机鲜牛奶 486ml</a></div><div class="title-b">【下单后3-5天发货】外包装更换中，请以实物为准</div><div class="p-price">￥20</div></li></ul>--%>
+            <%--</div>--%>
+        <%--</div>--%>
     </div>
     <div class="clear"></div>    
 </div>
 <div class="clear1"></div>
-<jsp:include page="commons_search/footer.jsp" />
+<jsp:include page="commons/footer.jsp" />
 </body>
 </html>

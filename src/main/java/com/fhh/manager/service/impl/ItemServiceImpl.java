@@ -97,7 +97,6 @@ public class ItemServiceImpl implements ItemService {
     public YZResult editItem(String id,String desc, Item item) {
         Date updatetime=new Date();
         Item nowItem = itemMapper.selectByPrimaryKey(id);
-//        ItemDesc nowItemDesc=itemDescMapper.selectByPrimaryKey(id);
         item.setCreatetime(nowItem.getCreatetime());
         item.setStatus(nowItem.getStatus());
         item.setUpdatetime(updatetime);

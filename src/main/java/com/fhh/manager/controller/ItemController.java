@@ -42,16 +42,16 @@ public class ItemController {
         YZResult yzResult = itemService.deleteItemById(id, item);
         return yzResult;
     }
-    //上架
 
+    //上架
     @RequestMapping(value = "/rest/item/reshelf", method = RequestMethod.POST)
     @ResponseBody
     public YZResult resheltItem(@RequestParam("ids") String id, Item item) {
         YZResult yzResult = itemService.resheltItem(id, item);
         return yzResult;
     }
-    //下架
 
+    //下架
     @RequestMapping(value = "/rest/item/instock", method = RequestMethod.POST)
     @ResponseBody
     public YZResult instockItem(@RequestParam("ids") String id, Item item) {

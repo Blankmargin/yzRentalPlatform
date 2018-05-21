@@ -21,7 +21,7 @@
                 <td><input class="easyui-textbox" name="sellPoint" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"></input></td>
             </tr>
             <tr>
-                <td>商品价格:</td>
+                <td>商品租金:</td>
                 <td><input class="easyui-numberbox" type="text" name="priceView" data-options="min:1,max:99999999,precision:2,required:true" />
                     <input type="hidden" name="price"/>
                 </td>

@@ -24,7 +24,7 @@
 <script type="text/javascript" src="/js/common.js"></script>
 
 
-   <title>我的购物车 - 宜立方商城</title>
+   <title>我的购物车 - 易租物品租赁平台</title>
 <body> 
 <jsp:include page="commons_cart/header.jsp" />
 <div class="cartMain">
@@ -67,7 +67,7 @@
 								<div>
 								<a target="_blank" href="http://localhost:8080/item/${cart.id }">${cart.title }</a>
 								</div>
-								<div class="cdzg">产地直供</div>
+								<%--<div class="cdzg">产地直供</div>--%>
 							</div>
 						</div>
 						<div class="pItem pPrice">
@@ -105,19 +105,19 @@
           <input type="button" value="清空购物车" onclick="javascript:delAll('273fe391cb449af4');" class="cartclear">
         </div>
         <div class="cartTotalItem">
-          <span id="all_shopePrice">（不含运费）</span>&nbsp;&nbsp;&nbsp;&nbsp;商品总计：
+          <span id="all_shopePrice"></span>&nbsp;&nbsp;&nbsp;&nbsp;总计：
           <span class="cartPrice" id="allMoney2">¥<fmt:formatNumber value="${totalPrice }" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/>
           </span>
         </div>
       </div>
       <div class="cartJsuan">
-         <input onclick="javascript:document.location.href='http://localhost:8080'" class="goshop" value="继续购物" type="button">
+         <input onclick="javascript:document.location.href='http://localhost:8080'" class="goshop" value="再看看" type="button">
          <input onclick="javascript:document.location.href='http://localhost:8080/order/order-cart'" class="jiesuan youxuan" value="去结算" type="button">
       </div>
     </div>
 </div>
 <!-- footer start -->
-<jsp:include page="commons_cart/footer.jsp" />
+<jsp:include page="commons/footer.jsp" />
 <!-- footer end -->
 
 </html>
